@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-cp /DWSurvey/target/diaowen.war /diaowen.war
+
 WAR_FILE=/diaowen.war
 UNPACK_DIR=/dwsurvey
 WEBAPP_BASE=$CATALINA_HOME/webapps

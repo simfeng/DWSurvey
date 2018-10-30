@@ -1,4 +1,4 @@
-FROM maven:3.5-jdk-8-alpine
+FROM maven:3.5-jdk-8-alpine as builder
 
 ARG LOCAL_MAVEN_MIRROR=http://maven.aliyun.com/nexus/content/groups/public/
 
@@ -57,7 +57,7 @@ ENV CONTEXT_ROOT=/
 
 RUN apk add --no-cache mysql-client
 
-# COPY --from=builder /DWSurvey/target/diaowen.war /diaowen.war
+COPY --from=builder /DWSurvey/target/diaowen.war /diaowen.war
 COPY docker-entry.sh /docker-entry.sh
 
 # TODO this is a dirty hack
