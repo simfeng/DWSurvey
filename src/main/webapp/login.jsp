@@ -81,7 +81,7 @@ label.error{
 				
 					<div class="dw_login_logo">
 						<h1 class="f1">DIAOWEN</h1>
-						<h2 class="f2" style="width: 460px;">调问专业<span class="f3">、</span>开源<span class="f3">、</span>实用的调研方式</h2>
+						<h2 class="f2" style="width: 460px;">fzq调问专业<span class="f3">、</span>开源<span class="f3">、</span>实用的调研方式</h2>
 					</div>
 					
 					
