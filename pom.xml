@@ -513,23 +513,31 @@
   			<groupId>net.qrcode</groupId>
   			<artifactId>qrcode</artifactId>
   			<version>1.0</version>
+			<systemPath>${project.basedir}/lib/QRCode.jar</systemPath>
+			<scope>system</scope>
 		</dependency>
 		<dependency>
 				<groupId>net.xssprotect</groupId>
 				<artifactId>xssprotest</artifactId>
 				<version>1.0</version>
+			<systemPath>${project.basedir}/lib/xssProtect-0.1.jar</systemPath>
+			<scope>system</scope>
 		</dependency>
     
 		<dependency>
 	  		<groupId>net.spssw</groupId>
 	  		<artifactId>spssw</artifactId>
 	  		<version>1.66</version>
+			<systemPath>${project.basedir}/lib/spssw-1.66.jar</systemPath>
+			<scope>system</scope>
 		</dependency>
 
 	  <dependency>
 		  <groupId>com.baidu</groupId>
 		  <artifactId>ueditor</artifactId>
 		  <version>1.1.2</version>
+		  <systemPath>${project.basedir}/lib/ueditor-1.1.2.jar</systemPath>
+		  <scope>system</scope>
 	  </dependency>
 
 
