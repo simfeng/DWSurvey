@@ -31,6 +31,7 @@ COPY ./lib /DWSurvey/lib
 RUN mvn install:install-file -Dfile=/DWSurvey/lib/QRCode.jar -DgroupId=net.qrcode -DartifactId=qrcode -Dversion=1.0 -Dpackaging=jar
 RUN mvn install:install-file -Dfile=/DWSurvey/lib/spssw-1.66.jar -DgroupId=net.spssw -DartifactId=spssw -Dversion=1.66 -Dpackaging=jar
 RUN mvn install:install-file -Dfile=/DWSurvey/lib/xssProtect-0.1.jar -DgroupId=net.xssprotect -DartifactId=xssprotest -Dversion=1.0 -Dpackaging=jar
+RUN mvn install:install-file -Dfile=/DWSurvey/lib/ueditor-1.1.2.jar -DgroupId=com.baidu -DartifactId=ueditor -Dversion=1.1.2 -Dpackaging=jar
 
 # if pom.xml is not updates, m2/ may be cached as well
 COPY pom.xml /DWSurvey/pom.xml
