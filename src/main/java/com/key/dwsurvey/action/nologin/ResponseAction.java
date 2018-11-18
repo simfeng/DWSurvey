@@ -21,6 +21,7 @@ import org.springframework.web.util.WebUtils;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -466,6 +467,8 @@ public class ResponseAction extends ActionSupport {
 		request.setAttribute("surveyName", directory.getSurveyName());
 		request.setAttribute("viewAnswer", directory.getViewAnswer());
 		request.setAttribute("sid", directory.getSid());
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss:SSS");
+		request.setAttribute("timeStamp", df.format(new Date()).toString());
 		return ANSWER_SUCCESS;
 	}
 
