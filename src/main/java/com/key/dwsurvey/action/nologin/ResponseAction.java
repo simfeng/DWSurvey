@@ -504,6 +504,8 @@ public class ResponseAction extends ActionSupport {
 		HttpServletRequest request = Struts2Utils.getRequest();
 		SurveyDirectory directory = directoryManager.get(surveyId);
 		request.setAttribute("directory", directory);
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss:SSS");
+		request.setAttribute("timeStamp", df.format(new Date()).toString());
 		return ANSWER_SUCCESS_M;
 	}
 

@@ -50,7 +50,7 @@
   </div>
 
   <div data-role="content">
-   <p>问卷提交成功，感谢您的参与!</p>
+   <p>问卷提交成功，感谢您的参与! 问卷编号为${timeStamp}</p>
   </div>
 
   <div data-role="footer">
