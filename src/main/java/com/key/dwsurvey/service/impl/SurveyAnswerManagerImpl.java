@@ -294,12 +294,26 @@ public class SurveyAnswerManagerImpl extends
 			file.mkdirs();
 
 		SurveyDirectory surveyDirectory = directoryManager.getSurvey(surveyId);
-		String fileName = surveyId + "_exportSurvey.xls";
 
-		XLSExportUtil exportUtil = new XLSExportUtil(fileName, savePath);
 		Criterion cri1 = Restrictions.eq("surveyId",surveyId);
 		Page<SurveyAnswer> page = new Page<SurveyAnswer>();
-		page.setPageSize(5000);
+		page.setPageSize(50000);
+		int startExport = 5000;
+		int endExprot = 100000;
+
+		try {
+			Map<String, String> envMap = System.getenv();
+			String sstartExport = envMap.get("DwsurveyStartExport");
+			String sendExprot = envMap.get("DwsurveyEndExprot");
+			startExport = Integer.parseInt(sstartExport);
+			endExprot = Integer.parseInt(sendExprot);
+		} catch ( Exception e) {
+			e.printStackTrace();
+		}
+
+		String fileName = surveyId + "_" + startExport + "_" + endExprot + "_exportSurvey.xls";
+
+		XLSExportUtil exportUtil = new XLSExportUtil(fileName, savePath);
 		try {
 			page = findPage(page,cri1);
 			int totalPage = page.getTotalPage();
@@ -307,12 +321,13 @@ public class SurveyAnswerManagerImpl extends
 			List<Question> questions = questionManager.findDetails(surveyId,"2");
 			exportXLSTitle(exportUtil, questions);
 			int answerListSize = answers.size();
-			for (int j = 0; j < answerListSize; j++) {
+			for (int j = startExport; (j<endExprot) && (j < answerListSize); j++) {
 				SurveyAnswer surveyAnswer = answers.get(j);
 				String surveyAnswerId = surveyAnswer.getId();
 				exportUtil.createRow(j+1);
 				exportXLSRow(exportUtil, surveyAnswerId, questions, surveyAnswer);
-				System.out.println(j+1+"/"+answerListSize);
+				System.out.println(surveyId+" exporting: "+(j+1)+"/"+answerListSize);
+				System.out.println("start: " + startExport + "/" + "end: " + endExprot);
 			}
 			exportUtil.exportXLS();
 		} catch (Exception e) {
